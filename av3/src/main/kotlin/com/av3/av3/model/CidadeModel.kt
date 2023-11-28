@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor
 import lombok.Setter
 import java.util.HashMap
 import java.util.LinkedList
-import kotlin.collections.HashMap
 
 @Getter
 @Setter
@@ -23,7 +22,7 @@ class CidadeModel: Comparable<CidadeModel>{
 
     //TODO: Implementar
     fun adicionarCidadeAdjacente(cidade: CidadeModel, peso: Int) {
-        cidadesAdjacente.
+
     }
 
     override fun compareTo(outraCidade: CidadeModel): Int {
