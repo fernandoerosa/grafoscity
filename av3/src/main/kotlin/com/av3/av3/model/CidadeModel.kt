@@ -15,14 +15,11 @@ class CidadeModel: Comparable<CidadeModel>{
     //Entender melhor lateinit
     private final lateinit var nome: String;
     private var distancia: Int = Integer.MAX_VALUE;
-    //TODO: Verificar valor de LinkedList
-    private var maisProximo: List<CidadeModel> = LinkedList<CidadeModel>();
-    //TODO: Verificar o tipo(MutableMapOf ou Map?)
-    private var cidadesAdjacente: Map<CidadeModel, Int> = mutableMapOf<CidadeModel, Int>();
+    private var maisProximo: MutableList<CidadeModel> = LinkedList();
+    private var cidadesAdjacente: MutableMap<CidadeModel, Int> = HashMap();
 
-    //TODO: Implementar
     fun adicionarCidadeAdjacente(cidade: CidadeModel, peso: Int) {
-
+        cidadesAdjacente.put(cidade, peso);
     }
 
     override fun compareTo(outraCidade: CidadeModel): Int {
