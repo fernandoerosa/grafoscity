@@ -1,7 +1,6 @@
 package com.av3.av3.model
 
 import lombok.Getter
-import lombok.NoArgsConstructor
 import lombok.RequiredArgsConstructor
 import lombok.Setter
 import java.util.HashMap
@@ -22,8 +21,8 @@ class CidadeModel: Comparable<CidadeModel>{
         cidadesAdjacente.put(cidade, peso);
     }
 
-    override fun compareTo(outraCidade: CidadeModel): Int {
+    override fun compareTo(other: CidadeModel): Int {
         return compareValues(
-            this.distancia, outraCidade.distancia);
+            this.distancia, other.distancia);
     }
 }
