@@ -22,22 +22,21 @@ class CityController @Autowired constructor(private val trackerService: TrackerS
         @RequestParam vehicleCode: String
     ): Map<String, String> {
         val graph = listOf(
-            City("CityA"),
-            City("CityB"),
-            City("CityC"),
-            City("CityD"),
-            City("CityE"),
-            City("CityF")
+            City("Chapecó"),
+            City("São Miguel do Oeste"),
+            City("Xanxerê"),
+            City("Concordia"),
+            City("Maravilha")
         )
 
         val edges = listOf(
-            Edge(City("CityA"), City("CityB"), 1, 0, 4),
-            Edge(City("CityA"), City("CityC"), 3, 2, 4),
-            Edge(City("CityB"), City("CityD"), 2, 5, 4),
-            Edge(City("CityB"), City("CityE"), 4, 0, 4),
-            Edge(City("CityC"), City("CityE"), 1, 8, 4),
-            Edge(City("CityD"), City("CityF"), 3, 8, 4),
-            Edge(City("CityE"), City("CityF"), 2, 4, 3)
+            Edge(City("Chapecó"), City("São Miguel do Oeste"), 5, 5, 10),
+            Edge(City("Chapecó"), City("Maravilha"), 4, 2, 7),
+            Edge(City("Chapecó"), City("Xanxerê"), 3, 1, 3),
+            Edge(City("Chapecó"), City("Concordia"), 4, 1, 5),
+            Edge(City("São Miguel do Oeste"), City("Maravilha"), 1, 0, 4),
+            Edge(City("Maravilha"), City("Xanxerê"), 3, 1, 4),
+            Edge(City("Xanxerê"), City("Concordia"), 4, 5, 6),
         )
 
         val vehicle = ConsumptionValue.getByCode(vehicleCode)?.let { Vehicle(it) }
