@@ -36,9 +36,16 @@ class TrackerServiceImplTest {
         val source = City("CityA")
         val destination = City("CityF")
 
-        `when`(trackerService.buildPath(any(), any())).thenReturn(listOf(source, City("CityB"), City("CityD"), destination))
+        `when`(trackerService.buildPath(any(), any())).thenReturn(
+            listOf(
+                source,
+                City("CityB"),
+                City("CityD"),
+                destination
+            )
+        )
 
-        val result = trackerService.calculateShortestPath(graph, edges, source, destination)
+        val result = trackerService.calculateEdgeValues(graph, edges, source, destination)
 
         assertEquals(listOf(source, City("CityB"), City("CityD"), destination), result)
     }
