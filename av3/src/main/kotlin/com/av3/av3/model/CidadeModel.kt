@@ -1,1 +1,0 @@
-data class CidadeModel(val name: String)

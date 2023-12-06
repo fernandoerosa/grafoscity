@@ -1,17 +1,17 @@
 package com.av3.av3.service.impl
 
-import CidadeModel
-import EdgeModel
+import City
+import Edge
 import com.av3.av3.service.TrackerService
 import org.springframework.stereotype.Service
 
 @Service
 class TrackerServiceImpl : TrackerService  {
 
-    override fun calculateShortestPath(graph: List<CidadeModel>, edges: List<EdgeModel>, source: CidadeModel, destination: CidadeModel): List<CidadeModel> {
+    override fun calculateShortestPath(graph: List<City>, edges: List<Edge>, source: City, destination: City): List<City> {
         val graphMap = edges.groupBy { it.source }.mapValues { it.value.associateBy { edge -> edge.destination } }
-        val distances = mutableMapOf<CidadeModel, Int>().apply { put(source, 0) }
-        val previous = mutableMapOf<CidadeModel, CidadeModel?>()
+        val distances = mutableMapOf<City, Int>().apply { put(source, 0) }
+        val previous = mutableMapOf<City, City?>()
         val unvisited = HashSet(graph)
 
         while (unvisited.isNotEmpty()) {
@@ -30,9 +30,9 @@ class TrackerServiceImpl : TrackerService  {
         return buildPath(previous, destination)
     }
 
-    private fun buildPath(previous: Map<CidadeModel, CidadeModel?>, destination: CidadeModel): List<CidadeModel> {
-        val path = mutableListOf<CidadeModel>()
-        var current: CidadeModel? = destination
+    internal fun buildPath(previous: Map<City, City?>, destination: City): List<City> {
+        val path = mutableListOf<City>()
+        var current: City? = destination
         while (current != null) {
             path.add(current)
             current = previous[current]
