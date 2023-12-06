@@ -1,11 +1,11 @@
 package com.av3.av3
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 
 @SpringBootApplication
 class Av3Application
 
 fun main(args: Array<String>) {
-	runApplication<Av3Application>(*args)
+	SpringApplication.run(Av3Application::class.java, *args)
 }
